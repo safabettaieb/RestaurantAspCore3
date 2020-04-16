@@ -3,33 +3,54 @@
 @{
     ViewData["Title"] = "Index";
 }
+    <div class="row">
+        <br /><br />
+        <div class="col-sm-6">
+            <h4 class="text-info">Category List</h4>
+        </div>
 
-<h1>Index</h1>
+        <div class="col-sm-6 text-right">
+            @* CreateButtonPartiel *@
+           <partial name="_CreateButtonPartial" />
+            @*@Html.Partial("_CreateButtonPartial")*@
+            
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            @if (Model.Count() > 0)
+            {
+                <table class="table table-striped">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    <tr class="table-secondary">
+                        <th class="text-primary">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td class="text-right">
+                                @* _TableButtonPartial *@
+                                <partial name="_TableButtonPartial" model=@item.Id/>
+                            </td>
+                        </tr>
+                    }
+
+                </table>}
+            else
+            {
+            <div class="alert alert-info text-center" role="alert">
+              no category exists !
+            </div>
+            }
+
+
+        </div>
+    </div>
+     
