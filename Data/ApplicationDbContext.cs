@@ -14,5 +14,6 @@ namespace RestaurantAspCore3.Data
         {
         }
         public DbSet<Category> categories { get; set; }
+        public DbSet<SubCategory> subCategories { get; set; }
     }
 }
