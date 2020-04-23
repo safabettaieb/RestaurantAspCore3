@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-RestaurantAspCore3-32B5A20D-0B07-4153-80FB-63DC3200A0D1</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200423175836_AddSubCategory.cs" />
+    <Compile Remove="Data\Migrations\20200423175836_AddSubCategory.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />
@@ -19,6 +24,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\SubCategory\" />
     <Folder Include="Areas\Customer\Data\" />
     <Folder Include="Areas\Customer\Models\" />
     <Folder Include="Controllers\" />

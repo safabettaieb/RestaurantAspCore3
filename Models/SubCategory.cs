@@ -10,16 +10,16 @@ namespace RestaurantAspCore3.Models
     public class SubCategory
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "SubCategory Name : ")]
-        public String name { get; set; }
+        public String Name { get; set; }
 
         
-        public int category_id { get; set; }
+        public int CategoryId { get; set; }
 
-        [ForeignKey("category_id ")]
+        [ForeignKey("CategoryId ")]
         public virtual Category Category { get; set; }
 
     }

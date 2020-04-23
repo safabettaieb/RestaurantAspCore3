@@ -10,26 +10,26 @@ namespace RestaurantAspCore3.Data.Migrations
                 name: "subCategories",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(nullable: false),
-                    category_id = table.Column<int>(nullable: false)
+                    Name = table.Column<string>(nullable: false),
+                    CategoryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_subCategories", x => x.id);
+                    table.PrimaryKey("PK_subCategories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_subCategories_categories_category_id",
-                        column: x => x.category_id,
+                        name: "FK_subCategories_categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_subCategories_category_id",
+                name: "IX_subCategories_CategoryId",
                 table: "subCategories",
-                column: "category_id");
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

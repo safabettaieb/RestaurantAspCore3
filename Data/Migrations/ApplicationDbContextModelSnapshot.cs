@@ -237,21 +237,21 @@ namespace RestaurantAspCore3.Data.Migrations
 
             modelBuilder.Entity("RestaurantAspCore3.Models.SubCategory", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("category_id")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("name")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
-                    b.HasIndex("category_id");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("subCategories");
                 });
@@ -311,7 +311,7 @@ namespace RestaurantAspCore3.Data.Migrations
                 {
                     b.HasOne("RestaurantAspCore3.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("category_id")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
