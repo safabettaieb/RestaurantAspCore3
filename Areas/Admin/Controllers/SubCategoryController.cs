@@ -8,7 +8,7 @@ using RestaurantAspCore3.Data;
 
 namespace RestaurantAspCore3.Areas.Admin.Controllers
 {
-    [Area ("Amin")] 
+    [Area ("Admin")] 
     public class SubCategoryController : Controller
     {
         private readonly ApplicationDbContext _db;
