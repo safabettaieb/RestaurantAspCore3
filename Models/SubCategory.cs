@@ -13,10 +13,10 @@ namespace RestaurantAspCore3.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "SubCategory Name : ")]
+        [Display(Name = "Sub Category Name ")]
         public String Name { get; set; }
 
-        
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
         [ForeignKey("CategoryId ")]
