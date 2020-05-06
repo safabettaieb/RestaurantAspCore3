@@ -33,15 +33,16 @@ namespace RestaurantAspCore3.Areas.Admin.ApiControllers
 
         [HttpPost]
         [Route("add")]
-        public async Task<IActionResult> AddCategory(Category Category) 
+        public async Task<IActionResult> AddCategory(Category Category)
         {
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 var C = await CategoryService.AddCategory(Category);
                 return Ok(C);
 
             }
             return BadRequest();
-            
+
         }
 
         [HttpGet]
@@ -52,6 +53,18 @@ namespace RestaurantAspCore3.Areas.Admin.ApiControllers
             return Ok(Category);
         }
 
+        [HttpPut]
+        [Route("update/{id}")]
+        public async Task<IActionResult> UpdateCategory(int id, Category Category)
+        {
+            if (ModelState.IsValid)
 
+            {
+                var CategoryInDB = await CategoryService.UpdateCategory(id, Category);
+                return Ok(CategoryInDB);
+            }
+
+            return BadRequest();
+        }
     }
 }

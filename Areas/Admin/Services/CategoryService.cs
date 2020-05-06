@@ -22,7 +22,7 @@ namespace RestaurantAspCore3.Areas.Admin.Services
             await _db.categories.AddAsync(Category);
             await _db.SaveChangesAsync();
             return Category;
-                 
+
         }
 
         public async Task<IEnumerable<Category>> GetCategories()
@@ -33,6 +33,14 @@ namespace RestaurantAspCore3.Areas.Admin.Services
         public async Task<Category> GetCategoryById(int id)
         {
             return await _db.categories.FirstOrDefaultAsync(c => c.Id == id);
+        }
+
+        public async Task<Category> UpdateCategory(int id, Category Category)
+        {
+            var CategoryInDb = await _db.categories.SingleOrDefaultAsync(c => c.Id == id);
+            CategoryInDb.Name = Category.Name;
+            await _db.SaveChangesAsync();
+            return CategoryInDb;
         }
     }
 }
