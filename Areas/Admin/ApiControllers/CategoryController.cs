@@ -9,13 +9,13 @@ using RestaurantAspCore3.Data;
 
 namespace RestaurantAspCore3.Areas.Admin.ApiControllers
 {
-     [ApiController]
-     [Route("/api/categories")]
+    [ApiController]
+    [Route("/api/categories")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService CategoryService;
 
-       
+
         public CategoryController(ICategoryService CategoryService)
         {
             this.CategoryService = CategoryService;
@@ -29,5 +29,15 @@ namespace RestaurantAspCore3.Areas.Admin.ApiControllers
 
             return Ok(Categories);
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IActionResult> GetCategoryById(int id)
+        {
+            var Category = await CategoryService.GetCategoryById(id);
+            return Ok(Category);
+        }
+
+
     }
 }
