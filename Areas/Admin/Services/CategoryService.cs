@@ -25,6 +25,14 @@ namespace RestaurantAspCore3.Areas.Admin.Services
 
         }
 
+        public async Task<Category> DeleteCategory(int id)
+        {
+            var CategoryInDb = await _db.categories.SingleOrDefaultAsync(c => c.Id == id);
+             _db.categories.Remove(CategoryInDb);
+            await _db.SaveChangesAsync();
+            return CategoryInDb;
+        }
+
         public async Task<IEnumerable<Category>> GetCategories()
         {
             return await _db.categories.ToListAsync();
